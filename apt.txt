@@ -1,0 +1,5 @@
+build-essential
+pkg-config
+cmake
+nano
+vim
