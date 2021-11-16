@@ -1,6 +1,9 @@
 channels:
 - conda-forge
 dependencies:
+- fenics
+- precice
+- pyprecice
 - pip
 - pip:
   - fenicsprecice
