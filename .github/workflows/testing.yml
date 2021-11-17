@@ -11,3 +11,4 @@ jobs:
       - uses: actions/checkout@v2
       - run: docker build -t muhhassani/pyiron-precice:latest .
       - run: docker tag muhhassani/pyiron-precice:latest muhhassani/pyiron-precice:"$(date +%F)"
+      - run: docker run --rm muhhassani/pyiron-precice:latest /bin/bash -c 'source /opt/conda/bin/activate; i=0; for f in $(ls ~/*.ipynb); do jupyter nbconvert --ExecutePreprocessor.timeout=9999999 --to notebook --execute $f || i=$((i+1)); done; if [ $i -gt 0 ]; then exit 1; fi;'
