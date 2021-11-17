@@ -32,12 +32,13 @@ RUN mamba env update -n base -f ${HOME}/environment.yml --prune && \
 
 SHELL ["/bin/bash", "-c", "source /usr/lib/openfoam/openfoam2106/etc/bashrc"]
 
-USER $DOCKER_UID
 WORKDIR $HOME
 
 USER root
-RUN fix-permissions $CONDA_DIR && \
-    fix-permissions /home/$DOCKER_USER
+RUN chmod +x ${HOME}/include_notebooks.sh && \
+    /bin/bash include_notebooks.sh &&\
+    fix-permissions /home/$DOCKER_USER && \
+    fix-permissions $CONDA_DIR
     
 USER $DOCKER_UID
 WORKDIR $HOME
