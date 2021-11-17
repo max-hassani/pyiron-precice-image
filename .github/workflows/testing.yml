@@ -9,6 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: testing the build
       - run: docker build -t muhhassani/pyiron-precice:latest .
       - run: docker tag muhhassani/pyiron-precice:latest muhhassani/pyiron-precice:"$(date +%F)"
