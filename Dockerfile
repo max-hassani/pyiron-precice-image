@@ -7,15 +7,12 @@ USER root
 # Installing openfoam, precice, and the necessary apt packages
 COPY apt.txt /tmp/
 RUN apt update && \
-    wget https://github.com/precice/precice/releases/download/v2.3.0/libprecice2_2.3.0_focal.deb && \
-    apt-get install -y ./libprecice2_2.3.0_focal.deb && \
     wget -q -O - https://dl.openfoam.com/add-debian-repo.sh | bash && \
     apt update && \
     sudo apt-get install -y openfoam2106-dev && \
     xargs -a /tmp/apt.txt apt-get install -y && \
     apt-get clean && \
-    rm /tmp/apt.txt && \
-    rm libprecice2_2.3.0_focal.deb
+    rm /tmp/apt.txt
 
 # installing openfoam adapter
 USER ${DOCKER_UID}
