@@ -7,6 +7,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 USER root
 
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    echo $TZ > /etc/timezone
 # Installing openfoam, precice, and the necessary apt packages
 COPY apt.txt /tmp/
 RUN wget -q -O - https://dl.openfoam.com/add-debian-repo.sh | bash && \
