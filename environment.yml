@@ -1,6 +1,7 @@
 channels:
 - conda-forge
 dependencies:
-- pip
-- pip:
-  - fenicsprecice
+- damask =3.0.0a4
+- precice
+- pyprecice
+- fenicsprecice
