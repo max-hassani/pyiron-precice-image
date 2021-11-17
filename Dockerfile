@@ -2,8 +2,8 @@ FROM pyiron/continuum:2021-10-05
 
 LABEL maintainer="Muhammad Hassani <hassani@mpie.de>"
 
-ARG DEBIAN_FRONTEND=noninteractive
-ENV TZ=Europe/Berlin
+ENV DEBIAN_FRONTEND=noninteractive \
+    TZ=Europe/Berlin
 
 USER root
 
