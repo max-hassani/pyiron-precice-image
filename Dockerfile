@@ -1,4 +1,4 @@
-FROM pyiron/continuum:2021-10-05
+FROM pyiron/continuum:2021-11-08
 
 LABEL maintainer="Muhammad Hassani <hassani@mpie.de>"
 
