@@ -11,7 +11,7 @@ USER root
 COPY apt.txt /tmp/
 RUN wget -q -O - https://dl.openfoam.com/add-debian-repo.sh | bash && \
     apt update && \
-    sudo apt-get install -y openfoam2106-dev && \
+    DEBIAN_FRONTEND="noninteractive" TZ="Europe/Berlin" sudo apt-get install -y openfoam2106-dev && \
     xargs -a /tmp/apt.txt apt-get install -y && \
     apt-get clean && \
     rm /tmp/apt.txt
